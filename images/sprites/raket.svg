@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Raket</title>
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#b8d9ee"/>
+    </linearGradient>
+    <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe66d"/>
+      <stop offset="1" stop-color="#ff7138"/>
+    </linearGradient>
+  </defs>
+  <path d="M50 88c-8 9-12 18-13 30 12-2 21-6 30-14z" fill="#ed604b"/>
+  <path d="M78 88c8 9 12 18 13 30-12-2-21-6-30-14z" fill="#ed604b"/>
+  <path d="M58 88c-7 14-7 23 6 34 13-11 13-20 6-34z" fill="url(#flame)"/>
+  <path d="M64 8C47 24 35 46 35 70c0 19 12 31 29 40 17-9 29-21 29-40C93 46 81 24 64 8z" fill="url(#body)" stroke="#285574" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M64 10C51 24 44 40 41 54h46C84 40 77 24 64 10z" fill="#ed604b"/>
+  <circle cx="64" cy="61" r="12" fill="#5cc4d8" stroke="#285574" stroke-width="5"/>
+  <path d="M40 81c6 8 14 14 24 20 10-6 18-12 24-20" fill="none" stroke="#285574" stroke-width="5" stroke-linecap="round"/>
+</svg>
