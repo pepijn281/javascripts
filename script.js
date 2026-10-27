@@ -68,8 +68,13 @@ class Jos {
     }
   }
 
-  wordtGeraakt(vijand) {
-    if (this.x == vijand.x && this.y == vijand.y) {
+  wordtGeraakt(object) {
+    if (
+      this.x < object.x + raster.celGrootte &&
+      this.x + raster.celGrootte > object.x &&
+      this.y < object.y + raster.celGrootte &&
+      this.y + raster.celGrootte > object.y
+    ) {
       return true;
     } else {
       return false;
@@ -210,10 +215,28 @@ function draw() {
   alice.toon();
   bob.toon();
   cindy.toon();
+ 
   for (var raket of raketten) {
     raket.beweeg();
     raket.teken();
-  }
+    if (eve.wordtGeraakt(raket)) {
+        eve.levens--;
+
+        raket.y = canvas.height - raket.afmeting;
+        raket.snelheidY = -raket.startsnelheid;
+
+        eve.x = 400;
+        eve.y = 300;
+
+        if (eve.levens <= 0) {
+          background("red");
+          fill("white");
+          textSize(50);
+          text("GAME OVER", 250, 300);
+          noLoop();
+        }
+      }
+    }
 
   if (
     eve.wordtGeraakt(alice) ||
