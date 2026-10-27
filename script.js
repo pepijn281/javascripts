@@ -1,3 +1,7 @@
+var aantalLagen = 10;
+var breedte;
+var hoogte; 
+
 class Raster {
   constructor(r, k) {
     this.aantalRijen = r;
@@ -160,6 +164,10 @@ function preload() {
 
 function setup() {
   canvas = createCanvas(900, 600);
+  
+  breedte = 900 / aantalLagen;
+  hoogte = breedte / 2;
+ 
   canvas.parent();
   frameRate(10);
   textFont("Verdana");
@@ -174,7 +182,9 @@ function setup() {
   for (var b = 0; b < 6; b++) {
     frameEve = loadImage("images/sprites/Eve100px/Eve_" + b + ".png");
     eve.animatie.push(frameEve);
+
   }
+
 
   alice = new Vijand(700, 200);
   alice.stapGrootte = 1 * eve.stapGrootte;
@@ -188,15 +198,22 @@ function setup() {
   cindy.stapGrootte = 1 * eve.stapGrootte;
   cindy.sprite = loadImage("images/sprites/Bob100px/Bob.png");
 
-  raketten = [
-    new Raket(2 * raster.celGrootte, canvas.height - raster.celGrootte, 9, raketAfbeelding),
-    new Raket(9 * raster.celGrootte, canvas.height - raster.celGrootte, 11, raketAfbeelding),
-    new Raket(16 * raster.celGrootte, canvas.height - raster.celGrootte, 13, raketAfbeelding),
+  raketten =[
+   
+    new Raket(positie1 * raster.celGrootte, canvas.height - raster.celGrootte, 9, raketAfbeelding),
+    new Raket(positie2 * raster.celGrootte, canvas.height - raster.celGrootte, 11, raketAfbeelding),
+    new Raket(positie3 * raster.celGrootte, canvas.height - raster.celGrootte, 13, raketAfbeelding),
   ];
 }
 
 function draw() {
-  background(brug);
+   background(brug);
+  push();
+  fill("lightslategray");
+  stroke("darkslategray");
+  tekenPiramide(aantalLagen);
+  pop();
+  
   raster.teken();
 
   push();
@@ -267,3 +284,18 @@ function draw() {
   }
 }
 
+function tekenPiramide(n) {
+  if (n > 0) {
+    for (var nr = 0; nr < n; nr++) {
+      rect(
+        nr * breedte + (aantalLagen - n) * breedte / 2,
+        (aantalLagen - n) * hoogte,
+        breedte,
+        hoogte
+      );
+    }
+
+    n--;
+    tekenPiramide(n);
+  }
+}
