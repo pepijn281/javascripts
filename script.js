@@ -39,6 +39,7 @@ class Jos {
     this.frameNummer = 3;
     this.stapGrootte = null;
     this.gehaald = false;
+    this.levens = 3;
   }
 
   beweeg() {
@@ -192,6 +193,15 @@ function setup() {
 function draw() {
   background(brug);
   raster.teken();
+
+  push();
+  fill("black");
+  noStroke();
+  textSize(25);
+  textAlign(LEFT, TOP);
+  text("Levens: " + eve.levens, 20, 10);
+  pop();
+
   eve.beweeg();
   alice.beweeg();
   bob.beweeg();
@@ -210,7 +220,18 @@ function draw() {
     eve.wordtGeraakt(bob) ||
     eve.wordtGeraakt(cindy)
   ) {
-    noLoop();
+    eve.levens--;
+
+    if (eve.levens <= 0) {
+      background("red");
+      fill("white");
+      textSize(50);
+      text("GAME OVER", 250, 300);
+      noLoop();
+    } else {
+      eve.x = 400;
+      eve.y = 300;
+    }
   }
 
   if (eve.gehaald) {
