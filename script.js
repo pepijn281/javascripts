@@ -184,7 +184,9 @@ function setup() {
     eve.animatie.push(frameEve);
 
   }
-
+  var positie1 = floor(random(9,18));
+  var positie2 = floor(random(9,18));
+  var positie3 = floor(random(9,18));
 
   alice = new Vijand(700, 200);
   alice.stapGrootte = 1 * eve.stapGrootte;
