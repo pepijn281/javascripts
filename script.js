@@ -29,10 +29,14 @@ class Raster {
     }
     pop();
 
-
-
-  }
-}
+  teken() {
+    push();
+    noFill();
+    stroke("blue");
+    strokeWeight(5);
+    rect(0, 0, canvas.width, canvas.height);
+     }
+    pop();
 
 
 class Jos {
@@ -288,7 +292,7 @@ function draw() {
   push();
   noFill();
   stroke("blue");
-  strokeWeight(5);
+  strokeWeight(10);
   rect(0, 0, canvas.width, canvas.height);
   pop();
 }
