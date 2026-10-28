@@ -283,7 +283,14 @@ function draw() {
     text("Je hebt de overkant gehaald! gefliciteerd!!", 30, 300,);
     noLoop();
 
+    
   }
+  push();
+  noFill();
+  stroke("blue");
+  strokeWeight(5);
+  rect(0, 0, canvas.width, canvas.height);
+  pop();
 }
 
 function tekenPiramide(n) {
